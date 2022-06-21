@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Halaman Registrasi</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+
+  <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900'>
+<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Montserrat:400,700'>
+<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+
+      <link rel="stylesheet" href="style_login.css">
+      <link rel="icon" type="image/png" href="logo.png">
+</head>
+
+<body>
+   <script src="https://www.gstatic.com/firebasejs/6.3.1/firebase-app.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyDjkgBJXqiV4wIBarMD72U2qLkrZ6o_H78",
+    authDomain: "sapanutu-c1e1a.firebaseapp.com",
+    databaseURL: "https://sapanutu-c1e1a.firebaseio.com",
+    projectId: "sapanutu-c1e1a",
+    storageBucket: "sapanutu-c1e1a.appspot.com",
+    messagingSenderId: "881736138038",
+    appId: "1:881736138038:web:ece7ad6a48e3f595588797",
+    measurementId: "G-LQEZ1CE6XW"
+
+    };
+    firebase.initializeApp(config);
+
+const auth = firebase.auth();
+  </script>
+
+
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  
+<div class="container">
+  <div class="info">
+    <h1> Registrasi </h1> 
+  </div>
+</div>
+<div class="form">
+  <div id="modal-signup" class="modal">
+  <div class="thumbnail"><img src="lobster.png"/></div>
+  <form class="login-form" id="signup-form">
+    <div class="input-field">
+    <input type="email" id="signup-email" required placeholder="Email"/>
+    <input type="password" id="signup-password" required placeholder="Password"/>
+    <button type="submit">Buat Akun</button>
+
+    <p class="message">Sudah Punya Akun? <a href="login.html">Masuk</a></p>
+    <p class="message">Kembali ke <a href="index.html">Halaman Utama</a></p>
+  </form>
+</div>
+</div>
+</div>
+ 
+<script type="text/javascript" src="cobaregis1.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,969 @@
+<!--
+=========================================================
+* * Black Dashboard - v1.0.1
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/black-dashboard
+* Copyright 2019 Creative Tim (https://www.creative-tim.com)
+
+
+* Coded by Creative Tim
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="logo.png">
+
+  <title>
+    Sapanutu
+  </title>
+  <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
+  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/ca4cf53ec2.js"></script>
+   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <script src="https://kit.fontawesome.com/ca4cf53ec2.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <!-- Nucleo Icons -->
+  <link href="nucleo-icons.css" rel="stylesheet" />
+  <!-- CSS Files -->
+  <link href="black-dashboard.css?v=1.0.0" rel="stylesheet" />
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <link href="demo.css" rel="stylesheet" />
+</head>
+
+<body class="white-content" data-gr-c-s-loaded="true">
+  <div class="wrapper">
+    <div class="sidebar" data="green">
+      <!--
+        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red"
+    -->
+      <div class="sidebar-wrapper">
+        <div class="logo">
+          <a href="javascript:void(0)" class="simple-text logo-mini">
+            <i class="fas fa-water"></i>
+          </a>
+          <a href="javascript:void(0)" class="simple-text logo-normal" style="font-size: 15px">
+            Sapanutu
+          </a>
+        </div>
+        <ul class="nav">
+          <li class="active ">
+            <a href="./setelahlogin1.html">
+            <i class="fas fa-tachometer-alt"></i>
+              <p style="font-size: 15px">Pemantauan</p>
+            </a>
+          </li>
+         
+           <li>
+            <a href="./history.html">
+             <i class="fas fa-calendar-alt"></i>
+              <p style="font-size: 15px">Riwayat Pemantauan</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-absolute navbar-transparent">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <div class="navbar-toggle d-inline">
+              <button type="button" class="navbar-toggler">
+                <span class="navbar-toggler-bar bar1"></span>
+                <span class="navbar-toggler-bar bar2"></span>
+                <span class="navbar-toggler-bar bar3"></span>
+              </button>
+            </div>
+            <a class="navbar-brand" href="setelahlogin1">Pemantauan</a>
+          </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navigation">
+            <ul class="navbar-nav ml-auto">
+            
+              <a href="setelahlogin1" id="logout"> <i class="fas fa-sign-out-alt"></i>Keluar</a> 
+              <li class="separator d-lg-none"></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- End Navbar -->
+      <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase-app.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase-database.js"></script>
+             <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
+            <style type="text/css">
+              .text1{
+        font-size: 110px;
+      }
+      .text2{
+        font-size:55px;
+      }
+      .text3{
+        font-size:40px;
+      }
+      .text4{
+        font-size:27px;
+      }
+      .text5{
+        font-size:20px;
+      }
+      .text6{
+        font-size:22px;
+      }
+      .text7{
+        font-size:90px;
+      }
+      .text8{
+        font-size:35px;
+      }
+
+
+            </style>
+            
+ <script>
+  // Your web app's Firebase configuration
+  var Config = {
+ apiKey: "AIzaSyDjkgBJXqiV4wIBarMD72U2qLkrZ6o_H78",
+    authDomain: "sapanutu-c1e1a.firebaseapp.com",
+    databaseURL: "https://sapanutu-c1e1a.firebaseio.com",
+    projectId: "sapanutu-c1e1a",
+    storageBucket: "sapanutu-c1e1a.appspot.com",
+    messagingSenderId: "881736138038",
+    appId: "1:881736138038:web:ece7ad6a48e3f595588797",
+    measurementId: "G-LQEZ1CE6XW"
+
+
+
+  };
+  // Initialize Firebase
+  firebase.initializeApp(Config);
+
+  const auth = firebase.auth();
+</script>
+       <script type="text/javascript">
+  var FireBase7 = firebase.database().ref();
+  var suhu; var keruh; var sali; var ph;
+  FireBase7.on("value" ,function(datasnapshot){
+  suhu =parseFloat(datasnapshot.child("perangkat1/realtimesuhu").val()); 
+   sali =parseFloat(datasnapshot.child("perangkat1/realtimesalinitas").val()); 
+    ph =parseFloat(datasnapshot.child("perangkat1/realtimeph").val()); 
+     keruh =parseFloat(datasnapshot.child("perangkat1/realtimekejernihan").val()); 
+     
+  
+  if (sali <= '30' && sali <= '35' && ph >= '7' && ph <= '8' && keruh == '0' && suhu2 >= '28' && suhu2 <= '39') {
+     document.getElementById("status1").innerHTML = '<span>Kondisi Kolam Lobster Anda Baik </span>';
+  }
+
+
+else {
+     document.getElementById("status1").innerHTML = '<span>Kondisi Kolam Lobster Anda Tidak Baik</span>';
+}
+
+
+document.getElementById("suhu1").innerText =suhu;  
+document.getElementById("sali1").innerText =sali; 
+document.getElementById("ph1").innerText =ph;
+ if (keruh == '0'){
+   document.getElementById("keruh1").innerHTML = '<span>Air Laut Jernih</span>';
+ }
+ else if (keruh == '1'){
+  document.getElementById("keruh1").innerHTML = '<span>Air Laut Kurang Jernih</span>';
+ }
+ else{
+  document.getElementById("keruh1").innerHTML = '<span>Air Laut Keruh</span>';
+ }
+
+  });
+</script>
+
+       <script type="text/javascript">
+  var FireBase8 = firebase.database().ref();
+   var sali; 
+  FireBase8.on("value" ,function(datasnapshot){
+
+   sali =parseFloat(datasnapshot.child("perangkat1/realtimesalinitas").val()); 
+
+     
+if (sali == '30' && sali <= '35'){
+  document.getElementById("statussali").innerHTML = '<span><img src="yes.png"><b> Salinitas Air Di Kolam Baik </b></span>';
+}
+else{
+  document.getElementById("statussali").innerHTML = '<span> <img src="no.png"> <b>Salinitas Air Di Kolam Tidak Baik</b> </span>';
+}
+
+
+  });
+</script>
+
+      <script type="text/javascript">
+  var FireBase9 = firebase.database().ref();
+  var ph; 
+  FireBase9.on("value" ,function(datasnapshot){
+  ph =parseFloat(datasnapshot.child("perangkat1/realtimeph").val()); 
+     
+ 
+if (ph >= '7' && ph <= '8'){
+  document.getElementById("statusph").innerHTML = '<span> <img src="yes.png"><b> pH Air Di Kolam Baik </b> </span>';
+}
+else{
+  document.getElementById("statusph").innerHTML = '<span><img src="no.png"> <b> pH Air Di Kolam Tidak Baik </b> </span>';
+}
+  });
+  
+
+
+</script>
+
+</script>
+
+      <script type="text/javascript">
+  var FireBase10 = firebase.database().ref();
+  var keruh; 
+  FireBase10.on("value" ,function(datasnapshot){
+  keruh =parseFloat(datasnapshot.child("perangkat1/realtimekejernihan").val()); 
+     
+ 
+if (keruh == '1'){
+  document.getElementById("statuskeruh").innerHTML = '<span> <img src="no.png"> <b> Air di Kolam Kurang Jernih </b></span>';
+}
+else if (keruh == '2'){
+  document.getElementById("statuskeruh").innerHTML = '<span> <img src="no.png"> <b> Air di Kolam Keruh </b></span>';
+}
+else{
+  document.getElementById("statuskeruh").innerHTML = '<span> <img src="yes.png"><b> Air di kolam Jernih </b></span>';
+}
+  });
+
+
+</script>
+
+ <script type="text/javascript">
+  var FireBase11 = firebase.database().ref();
+  var suhu2; 
+  FireBase11.on("value" ,function(datasnapshot){
+  suhu2 =parseFloat(datasnapshot.child("perangkat1/realtimesuhu").val()); 
+
+if (suhu2 >= '25' && suhu2 <= '39'){
+  document.getElementById("statussuhu").innerHTML = '<span> <img src="yes.png"><b>Suhu Air Di Kolam Baik</b></span>';
+}
+else{
+  document.getElementById("statussuhu").innerHTML = '<span> <img src="no.png"> <b>Suhu Air Di Kolam Tidak Baik</b></span>';
+}
+
+
+  });
+
+</script>
+
+</script>
+ <script type="text/javascript">
+  var FireBase11 = firebase.database().ref();
+  var suhu; var keruh; var sali; var ph;
+  FireBase11.on("value" ,function(datasnapshot){
+  suhu2 =parseFloat(datasnapshot.child("perangkat1/realtimesuhu").val()); 
+   sali =parseFloat(datasnapshot.child("perangkat1/realtimesalinitas").val()); 
+    ph =parseFloat(datasnapshot.child("perangkat1/realtimeph").val()); 
+     keruh =parseFloat(datasnapshot.child("perangkat1/realtimekejernihan").val()); 
+
+if (sali < '30' && ph < '7' && keruh == '2' && suhu2 >= '39' ){
+  document.getElementById("saransali").innerHTML = '<p class="text4">Tingkat Kegaraman Pada Air Laut di Kolam Melewati Batas 30-35 ppt, Perhatikan Suhu dan pH Air Laut dan Bersihkan Kolam</p>';
+}
+else if (sali >= '35' && ph < '7' && keruh == '2' && suhu2 >= '39' ){
+  document.getElementById("saransali").innerHTML = '<p class="text4">Tingkat Kegaraman Pada Air Laut di Kolam Melewati Batas 30-35 ppt, Perhatikan Suhu dan pH Air Laut dan Bersihkan Kolam</p>';
+}
+else if (sali >= '35' && ph < '7' && keruh == '1' && suhu2 >= '39' ){
+  document.getElementById("saransali").innerHTML = '<p class="text4">Tingkat Kegaraman Pada Air Laut di Kolam Melewati Batas 30-35 ppt, Perhatikan Suhu dan pH Air Laut dan Bersihkan Kolam</p>';
+}
+else if (sali < '30'  && ph < '7' && keruh == '1' && suhu2 >= '39' ){
+  document.getElementById("saransali").innerHTML = '<p class="text4">Tingkat Kegaraman Pada Air Laut di Kolam Melewati Batas 30-35 ppt, Perhatikan Suhu dan pH Air Laut dan Bersihkan Kolam</p>';
+}
+else if (sali < '30' && ph >= '8' && keruh == '2' && suhu2 >= '39' ){
+  document.getElementById("saransali").innerHTML = '<p class="text4">Tingkat Kegaraman Pada Air Laut di Kolam Melewati Batas 30-35 ppt, Perhatikan Suhu dan pH Air Laut dan Bersihkan Kolam</p>';
+}
+else if ( sali >= '35' && ph >= '8' && keruh == '2' && suhu2 >= '39' ){
+  document.getElementById("saransali").innerHTML = '<p class="text4">Tingkat Kegaraman Pada Air Laut di Kolam Melewati Batas 30-35 ppt, Perhatikan Suhu dan pH Air Laut dan Bersihkan Kolam</p>';
+}
+else if (sali < '30' && ph >= '8' && keruh == '1' && suhu2 >= '39' ){
+  document.getElementById("saransali").innerHTML = '<p class="text4">Tingkat Kegaraman Pada Air Laut di Kolam Melewati Batas 30-35 ppt, Perhatikan Suhu dan pH Air Laut dan Bersihkan Kolam</p>';
+}
+else if ( sali >= '35' && ph >= '8' && keruh == '1' && suhu2 >= '39' ){
+  document.getElementById("saransali").innerHTML = '<p class="text4">Tingkat Kegaraman Pada Air Laut di Kolam Melewati Batas 30-35 ppt, Perhatikan Suhu dan pH Air Laut dan Bersihkan Kolam</p>';
+}
+else if (sali < '30' && ph >= '8' && keruh =='2' && suhu2 <= '25' ){
+  document.getElementById("saransali").innerHTML = '<p class="text4">Tingkat Kegaraman Pada Air Laut di Kolam Melewati Batas 30-35 ppt, Perhatikan Suhu dan pH Air Laut dan Bersihkan Kolam</p>';
+}
+else if (sali >= '35' && ph >= '8' && keruh =='2' && suhu2 <= '25' ){
+  document.getElementById("saransali").innerHTML = '<p class="text4">Tingkat Kegaraman Pada Air Laut di Kolam Melewati Batas 30-35 ppt, Perhatikan Suhu dan pH Air Laut dan Bersihkan Kolam</p>';
+}
+
+else if (sali >= '35' && ph >= '8' && keruh =='1' && suhu2 <= '25' ){
+  document.getElementById("saransali").innerHTML = '<p class="text4">Tingkat Kegaraman Pada Air Laut di Kolam Melewati Batas 30-35 ppt, Perhatikan Suhu dan pH Air Laut dan Bersihkan Kolam</p>';
+}
+else if (sali < '30'  && ph >= '8' && keruh =='1' && suhu2 <= '25' ){
+  document.getElementById("saransali").innerHTML = '<p class="text4">Tingkat Kegaraman Pada Air Laut di Kolam Melewati Batas 30-35 ppt, Perhatikan Suhu dan pH Air Laut dan Bersihkan Kolam</p>';
+}
+
+else if (sali < '30' && ph < '7' && keruh == '2'  && suhu2 <= '25' ){
+  document.getElementById("saransali").innerHTML = '<p class="text4">Tingkat Kegaraman Pada Air Laut di Kolam Melewati Batas 30-35 ppt, Perhatikan Suhu dan pH Air Laut dan Bersihkan Kolam</p>';
+}
+else if (sali >= '35' && ph < '7' && keruh == '2'  && suhu2 <= '25' ){
+  document.getElementById("saransali").innerHTML = '<p class="text4">Tingkat Kegaraman Pada Air Laut di Kolam Melewati Batas 30-35 ppt, Perhatikan Suhu dan pH Air Laut dan Bersihkan Kolam</p>';
+}
+
+else if ( sali >= '35' && ph < '7' && keruh == '1'  && suhu2 <= '25' ){
+  document.getElementById("saransali").innerHTML = '<p class="text4">Tingkat Kegaraman Pada Air Laut di Kolam Melewati Batas 30-35 ppt, Perhatikan Suhu dan pH Air Laut dan Bersihkan Kolam</p>';
+}
+else if (sali < '30'  && ph < '7' && keruh == '1'  && suhu2 <= '25' ){
+  document.getElementById("saransali").innerHTML = '<p class="text4">Tingkat Kegaraman Pada Air Laut di Kolam Melewati Batas 30-35 ppt, Perhatikan Suhu dan pH Air Laut dan Bersihkan Kolam</p>';
+}
+else if (sali < '30'  && ph < '7' && keruh == '2'){
+  document.getElementById("saransali").innerHTML = '<p class="text4">Tingkat Kegaraman Pada Air Laut di Kolam Melewati Batas 30-35 ppt, Perhatikan pH Air Laut dan Bersihkan Kolam</p>';
+}
+else if (sali >= '35' && ph < '7' && keruh == '2'){
+  document.getElementById("saransali").innerHTML = '<p class="text4">Tingkat Kegaraman Pada Air Laut di Kolam Melewati Batas 30-35 ppt, Perhatikan pH Air Laut dan Bersihkan Kolam</p>';
+}
+else if (sali >= '35' && ph < '7' && keruh == '1'){
+  document.getElementById("saransali").innerHTML = '<p class="text4">Tingkat Kegaraman Pada Air Laut di Kolam Melewati Batas 30-35 ppt, Perhatikan pH Air Laut dan Bersihkan Kolam</p>';
+}
+else if (sali < '30' && ph < '7' && keruh == '1'){
+  document.getElementById("saransali").innerHTML = '<p class="text4">Tingkat Kegaraman Pada Air Laut di Kolam Melewati Batas 30-35 ppt, Perhatikan pH Air Laut dan Bersihkan Kolam</p>';
+}
+
+else if ( sali >= '35' && ph >= '8' && keruh == '2'){
+  document.getElementById("saransali").innerHTML = '<p class="text4">Tingkat Kegaraman Pada Air Laut di Kolam Melewati Batas 30-35 ppt, Perhatikan pH Air Laut dan Bersihkan Kolam</p>';
+}
+else if (sali < '30'  && ph >= '8' && keruh == '2'){
+  document.getElementById("saransali").innerHTML = '<p class="text4">Tingkat Kegaraman Pada Air Laut di Kolam Melewati Batas 30-35 ppt, Perhatikan pH Air Laut dan Bersihkan Kolam</p>';
+}
+else if (sali < '30'  && ph >= '8' && keruh == '1'){
+  document.getElementById("saransali").innerHTML = '<p class="text4">Tingkat Kegaraman Pada Air Laut di Kolam Melewati Batas 30-35 ppt, Perhatikan pH Air Laut dan Bersihkan Kolam</p>';
+}
+else if ( sali >= '35' && ph >= '8' && keruh == '1'){
+  document.getElementById("saransali").innerHTML = '<p class="text4">Tingkat Kegaraman Pada Air Laut di Kolam Melewati Batas 30-35 ppt, Perhatikan pH Air Laut dan Bersihkan Kolam</p>';
+}
+else if (sali < '30' && suhu2 >= '39' && keruh == '2'){
+  document.getElementById("saransali").innerHTML = '<p class="text4">Tingkat Kegaraman Pada Air Laut di Kolam Melewati Batas 30-35 ppt, Perhatikan Suhu Air Laut dan Bersihkan Kolam</p>';
+}
+else if ( sali >= '35' && suhu2 >= '39' && keruh == '2'){
+  document.getElementById("saransali").innerHTML = '<p class="text4">Tingkat Kegaraman Pada Air Laut di Kolam Melewati Batas 30-35 ppt, Perhatikan Suhu Air Laut dan Bersihkan Kolam</p>';
+}
+else if ( sali >= '35' && suhu2 >= '39' && keruh == '1'){
+  document.getElementById("saransali").innerHTML = '<p class="text4">Tingkat Kegaraman Pada Air Laut di Kolam Melewati Batas 30-35 ppt, Perhatikan Suhu Air Laut dan Bersihkan Kolam</p>';
+}
+else if (sali < '30'  && suhu2 >= '39' && keruh == '1'){
+  document.getElementById("saransali").innerHTML = '<p class="text4">Tingkat Kegaraman Pada Air Laut di Kolam Melewati Batas 30-35 ppt, Perhatikan Suhu Air Laut dan Bersihkan Kolam</p>';
+}
+
+else if ( sali >= '35' && suhu2 <= '25' && keruh == '2'){
+  document.getElementById("saransali").innerHTML = '<p class="text4">Tingkat Kegaraman Pada Air Laut di Kolam Melewati Batas 30-35 ppt, Perhatikan Suhu Air Laut dan Bersihkan Kolam</p>';
+}
+else if (sali < '30'  && suhu2 <= '25' && keruh == '2'){
+  document.getElementById("saransali").innerHTML = '<p class="text4">Tingkat Kegaraman Pada Air Laut di Kolam Melewati Batas 30-35 ppt, Perhatikan Suhu Air Laut dan Bersihkan Kolam</p>';
+}
+
+else if (sali >= '35' && suhu2 <= '25' && keruh == '1'){
+  document.getElementById("saransali").innerHTML = '<p class="text4">Tingkat Kegaraman Pada Air Laut di Kolam Melewati Batas 30-35 ppt, Perhatikan Suhu Air Laut dan Bersihkan Kolam</p>';
+}
+else if (sali < '30'  && suhu2 <= '25' && keruh == '1'){
+  document.getElementById("saransali").innerHTML = '<p class="text4">Tingkat Kegaraman Pada Air Laut di Kolam Melewati Batas 30-35 ppt, Perhatikan Suhu Air Laut dan Bersihkan Kolam</p>';
+}
+else if (sali < '30' && ph < '7'){
+  document.getElementById("saransali").innerHTML = '<p class="text8">Tingkat Kegaraman Pada Air Laut di Kolam Melewati Batas 30-35 ppt dan Perhatikan pH Air Laut</p>';
+} 
+else if (sali >= '35' && ph < '7'){
+  document.getElementById("saransali").innerHTML = '<p class="text8">Tingkat Kegaraman Pada Air Laut di Kolam Melewati Batas 30-35 ppt dan Perhatikan pH Air Laut</p>';
+} 
+else if (sali < '30'  && ph >= '8'){
+  document.getElementById("saransali").innerHTML = '<p class="text8">Tingkat Kegaraman Pada Air Laut di Kolam Melewati Batas 30-35 ppt dan Perhatikan pH Air Laut</p>';
+} 
+else if (sali >= '35' && ph >= '8'){
+  document.getElementById("saransali").innerHTML = '<p class="text8">Tingkat Kegaraman Pada Air Laut di Kolam Melewati Batas 30-35 ppt dan Perhatikan pH Air Laut</p>';
+} 
+else if (sali < '30' && keruh == '2'){
+  document.getElementById("saransali").innerHTML = '<p class="text8">Tingkat Kegaraman Pada Air Laut di Kolam Melewati Batas 30-35 ppt dan Bersihkan Kolam</p>';
+} 
+else if ( sali >= '35' && keruh == '2'){
+  document.getElementById("saransali").innerHTML = '<p class="text8">Tingkat Kegaraman Pada Air Laut di Kolam Melewati Batas 30-35 ppt dan Bersihkan Kolam</p>';
+} 
+else if (sali >= '35' && keruh == '1'){
+  document.getElementById("saransali").innerHTML = '<p class="text8">Tingkat Kegaraman Pada Air Laut di Kolam Melewati Batas 30-35 ppt dan Bersihkan Kolam</p>';
+} 
+else if (sali < '30' && keruh == '1'){
+  document.getElementById("saransali").innerHTML = '<p class="text8">Tingkat Kegaraman Pada Air Laut di Kolam Melewati Batas 30-35 ppt dan Bersihkan Kolam</p>';
+} 
+else if (sali < '30' && suhu2 >= '39'){
+  document.getElementById("saransali").innerHTML = '<p class="text8">Tingkat Kegaraman Pada Air Laut di Kolam Melewati Batas 30-35 ppt dan Perhatikan Suhu Air Laut</p>';
+}   
+
+ else if (sali >= '35' && suhu2 <= '25'){
+  document.getElementById("saransali").innerHTML = '<p class="text8">Tingkat Kegaraman Pada Air Laut di Kolam Melewati Batas 30-35 pptdan Perhatikan Suhu Air Laut</p>';
+}     
+
+else if (keruh == '1' &&  suhu2 <= '25'){
+  document.getElementById("saransali").innerHTML = '<p class="text3"> Air Laut di Kolam Sudah Keruh Harap Bersihkan Kolam Lobster dan Perhatikan Suhu Air Laut</p>';
+} 
+else if (keruh == '2' &&  suhu2 <= '25'){
+  document.getElementById("saransali").innerHTML = '<p class="text3"> Air Laut di Kolam Sudah Keruh Harap Bersihkan Kolam Lobster dan Perhatikan Suhu Air Laut</p>';
+} 
+else if (keruh == '1' &&  suhu2 >= '39'){
+  document.getElementById("saransali").innerHTML = '<p class="text3"> Air Laut di Kolam Sudah Keruh Harap Bersihkan Kolam Lobster dan Perhatikan Suhu Air Laut</p>';
+} 
+else if (keruh == '2' &&  suhu2 >= '39'){
+  document.getElementById("saransali").innerHTML = '<p class="text3"> Air Laut di Kolam Sudah Keruh Harap Bersihkan Kolam Lobster dan Perhatikan Suhu Air Laut</p>';
+} 
+else if (keruh == '1' &&  ph >= '8'){
+  document.getElementById("saransali").innerHTML = '<p class="text3"> Air Laut di Kolam Sudah Keruh Harap Bersihkan Kolam Lobster dan Perhatikan pH Air Laut</p>';
+} 
+else if (keruh == '2' &&  ph >= '8'){
+  document.getElementById("saransali").innerHTML = '<p class="text3"> Air Laut di Kolam Sudah Keruh Harap Bersihkan Kolam Lobster dan Perhatikan pH Air Laut</p>';
+} 
+else if (keruh == '1' &&  ph < '7'){
+  document.getElementById("saransali").innerHTML = '<p class="text3"> Air Laut di Kolam Sudah Keruh Harap Bersihkan Kolam Lobster dan Perhatikan pH Air Laut</p>';
+} 
+else if (keruh == '2' &&  ph < '7'){
+  document.getElementById("saransali").innerHTML = '<p class="text3"> Air Laut di Kolam Sudah Keruh Harap Bersihkan Kolam Lobster dan Perhatikan pH Air Laut</p>';
+} 
+else if (suhu2 <= '25' && ph >= '8' ){
+  document.getElementById("saransali").innerHTML = '<p class="text3"> Perhatikan Tingkat Suhu Air Laut di Kolam dan pH Air Laut</p>';
+}
+else if (suhu2 <= '25' && ph < '7'){
+  document.getElementById("saransali").innerHTML = '<p class="text3"> Perhatikan Tingkat Suhu Air Laut di Kolam dan pH Air Laut</p>';
+}
+else if (suhu2 >= '39' && ph < '7'){
+  document.getElementById("saransali").innerHTML = '<p class="text3"> Perhatikan Tingkat Suhu Air Laut di Kolam dan pH Air Laut</p>';
+}
+else if (suhu2 >= '39' && ph >= '8'){
+  document.getElementById("saransali").innerHTML = '<p class="text3"> Perhatikan Tingkat Suhu Air Laut di Kolam dan pH Air Laut</p>';
+}
+else if (sali < '30' ){
+  document.getElementById("saransali").innerHTML = '<p class="text3">Tingkat Kegaraman Pada Air Laut di Kolam Melewati Batas 30-35 ppt</p>';
+}
+else if ( sali >= '35'){
+  document.getElementById("saransali").innerHTML = '<p class="text3">Tingkat Kegaraman Pada Air Laut di Kolam Melewati Batas 30-35 ppt</p>';
+}
+
+else if (suhu2 <= '25'){
+  document.getElementById("saransali").innerHTML = '<p class="text3"> Perhatikan Tingkat Suhu Air Laut di Kolam</p>';
+}
+else if (suhu2 >= '39'){
+  document.getElementById("saransali").innerHTML = '<p class="text3"> Perhatikan Tingkat Suhu Air Laut di Kolam</p>';
+}
+
+else if (keruh == '2' ){
+  document.getElementById("saransali").innerHTML = '<p class="text3"> Air Laut di Kolam Sudah Keruh Harap Bersihkan Kolam Lobster </p>';
+} 
+else if (keruh == '1' ){
+  document.getElementById("saransali").innerHTML = '<p class="text3"> Air Laut di Kolam Sudah Keruh Harap Bersihkan Kolam Lobster </p>';
+} 
+else if(ph >= '8'){
+  document.getElementById("saransali").innerHTML = '<p class="text3"> Tingkat pH Air Laut Sudah Melewati Batas </p>';
+}
+else if(ph < '7'){
+  document.getElementById("saransali").innerHTML = '<p class="text3"> Tingkat pH Air Laut Sudah Melewati Batas </p>';
+}
+else{
+document.getElementById("saransali").innerHTML = '<span class="text8"> Jangan Lupa Memberi Makan Lobster </span>';
+}
+
+ });
+     </script>
+     
+
+
+ <script type="text/javascript">
+      function hitungLuas(){
+        panjang = document.getElementById("txtPanjang").value;
+        lebar = document.getElementById("txtLebar").value;
+        tinggi = document.getElementById("txtTinggi").value;
+        if (panjang == ""){
+          alert("Panjang Kolam Harus diisi !");
+          return;
+        }else if (lebar == ""){
+          alert("Lebar Kolam Harus diisi !");
+          return;
+        }
+        else if (tinggi == ""){
+          alert("Tinggi Kolam Harus diisi !");
+          return;
+        }
+        if (isNaN(panjang)){
+          alert("Panjang Kolam Harus diisi dengan angka !");
+          return;
+        }if (isNaN(lebar)){
+          alert("Lebar Kolam Harus diisi dengan angka !");
+          return;
+        }if (isNaN(tinggi)){
+          alert("Tinggi Kolam Harus diisi dengan angka !");
+          return;
+        }
+        Luas = panjang * lebar;
+        document.getElementById("txtLuas").value =  Luas;
+        console.log(Luas);
+
+     var tinggikolam = tinggi; var hasil1; var meter_dm = 1000; var lupe = Luas; var koma1; var vk; var koma2; var koma3; var cm_m = 100;
+    hasil1 = parseFloat(tinggikolam / cm_m);
+    koma1 = hasil1.toFixed(5);    
+    vk = parseFloat(lupe * koma1);
+    koma2 = vk.toFixed(5);
+    liter = parseFloat(koma2 * meter_dm); 
+  koma3 =  liter.toFixed(2);
+   document.getElementById("Totalhujan4").innerText =liter; 
+
+      }
+      
+      function resetForm(){
+        document.getElementById("txtPanjang").value="";
+        document.getElementById("txtLebar").value="";
+        document.getElementById("txtLuas").value="";
+        document.getElementById("txtTinggi").value="";
+      }
+
+    </script>
+    <script type="text/javascript"> 
+
+
+
+    </script>
+      <div class="content">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card card-chart">
+              <div class="card-header" style="background-color: #FFA474">
+                <h4 class="card-title"> <i class="fas fa-user-circle"></i>Profil Pengguna</h4>
+              </div>
+              <div class="card-body">
+                <div class="chart-area">
+                  <img src="profil.png" style="float:left; margin:0 15px 15px 0;" width="250" height="250" /><p class="text2">Selamat Datang</p>
+                  <p class="text4">Kondisi Kolam Anda Saat Ini :</p>
+                  <p id="status1" class="text3"></p>
+                
+                </div>
+              </div>
+            </div>
+          </div>
+  <div class="col-lg-6">
+            <div class="card card-tasks">
+              <div class="card-header"style="background-color: #A27AFE">
+             <div class="row">
+                  <div class="col-lg-12 text-left">
+                    <h2 class="card-title"> <i class="fas fa-check"></i>Status Kolam</h2>
+              
+              </div>
+            </div>
+          </div>
+          <script type="text/javascript">
+          
+
+          </script>
+           <div class="card-body"> 
+            <div class="card-body"><br>
+                <div class="alert alert-info" style="background-color: #CEDEF4">
+                  <span id="statusph" style="color: black" class="text6"></span>
+                </div>
+                <div class="alert alert-info" style="background-color: #E8C6FF">
+                  <span  id="statussuhu" style="color: black" class="text6"></span>
+                </div>
+                <div class="alert alert-info" style="background-color: #FFCECE">
+                  <span id="statuskeruh" style="color: black" class="text6"></span>
+                </div>
+                <div class="alert alert-info" style="background-color: #FFF7B7">
+                  <span id="statussali" style="color: black" class="text6"></span>
+                </div>
+
+                
+        </div>
+      </div>
+    </div>
+  </div>
+          <div class="col-lg-6">
+            <div class="card card-tasks">
+              <div class="card-header" style="background-color: #EFA9FE">
+                <div class="row">
+                  <div class="col-lg-6 text-left">
+                    <h2 class="card-title"> <i class="fas fa-map-marked-alt"></i> Lokasi</h2>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <div id="lokasi" style="width:100%;height:400px;"></div>
+                <div class="chart-area">
+                  
+                  
+<script type="text/javascript">
+
+   var map_main;
+var map_infoWindow;
+
+var map_centerLat = -6.294499
+var map_centerLng = 106.8358
+var map_initZoom = 20
+
+var map_windows = []
+var dispInfo
+
+function map_initMapMain () {
+  dispInfo = {}
+  firebase.database().ref('maps/lokasi').on('value', function(snapshot){
+    data = snapshot.val()
+    for(key in data){
+      let status = data[key].status
+      if (status == '0') {
+          var pin_status = 'lobsterr.png'
+      }else {
+          var pin_status = 'lobsterr.png'
+      }
+      dispInfo[key] = {
+        lat: data[key].latitude,
+        lng: data[key].longitude,
+        status: pin_status
+      }
+    }
+    displayMap(dispInfo)
+  })
+}
+
+function displayMap (map_markers){
+  var pins = []
+  for (key in map_markers) {
+    if (!map_markers.hasOwnProperty (key)) continue
+    markerData = map_markers [key]
+    console.log(markerData.status);
+    var pin = new google.maps.Marker ({
+      position: {
+        lat: markerData.lat,
+        lng: markerData.lng
+      },
+      visible: true,
+      icon: markerData.status
+    })
+    pin.setMap (map_main)
+    pins.push (pin)}
+    /* listen to marker click */
+    var infoWindow = new google.maps.InfoWindow ()
+   // google.maps.event.addListener (pin, 'click', (function (pin, data, infoWindow) {
+     // return function () {
+       // map_closeWindows ()
+        //var contentString = '<div><div style="padding-bottom: 10px; font-size: 140%"><b>' +
+         // data.label + '</b></div>' +
+         // data.desc + '&nbsp;' +
+          //'<br><a href="' + data.url + '">View.</a></div>'
+        //infoWindow.setContent (contentString)
+       // infoWindow.open (map_main, pin)
+       // map_windows [0] = infoWindow
+      //}})(pin, markerData, infoWindow))
+ // }
+
+  map_main = new google.maps.Map (document.getElementById('lokasi'), {
+    center: {
+      lat: map_centerLat,
+      lng: map_centerLng
+    },
+    zoom: map_initZoom
+  });
+
+  var markerCluster = new MarkerClusterer (map_main, pins)
+  infoWindow.open(map_main);
+}
+
+
+function map_closeWindows () {
+  if (map_windows.length > 0) {
+    map_windows [0].set ('marker', null)
+    map_windows [0].close ()
+    map_windows.length = 0
+  }
+}
+
+</script>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+  </script>
+   <div class="row">
+         <div class="col-lg-6">
+            <div class="card card-tasks">
+              <div class="card-header"style="background-color: #B5FFFC">
+                <h4 class="card-title"> <i class="fas fa-ruler-combined"></i>Luas Permukaan Kolam</h4>
+              </div>
+              <div class="card-body">
+                 <h3 for="panjang" class="control-label mb-1">Panjang Kolam ( Meter ) </h3>
+                 <input type="text" id="txtPanjang" name="txtPanjang" class="form-control"/><br>
+    <h3 class="control-label mb-1">Lebar Kolam( Meter )</h3>
+    <input type="text" id="txtLebar" name="txtLebar" class="form-control"/>
+     <h3 class="control-label mb-1">Tinggi Kolam ( SentiMeter )</h3>
+    <input type="text" id="txtTinggi" name="txtTinggi" class="form-control"/>
+
+    <input type="button" id="btnHitung" value="Hitung Luas" onclick="hitungLuas();" class="btn btn-primary btn-lg"> &nbsp;<input type="button" id="btnReset" value="Reset" onclick="resetForm();" class="btn btn-primary btn-lg"><br>
+<h3 class="control-label mb-1" >Luas ( m<sup>2</sup> )</h3><input type="text" readonly="true" id="txtLuas" name="txtLuas" class="form-control"/>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="card card-tasks">
+              <div class="card-header"style="background-color: #FFE2EC">
+                 <h4 class="card-title"><i class="fas fa-cloud-rain"></i>Jumlah Air Yang Ada Di Kolam</h4>
+              </div>
+              <div class="card-body"><br><br><br><br>
+                 <p class="text2" align="center" line-height="200px" id="Totalhujan4"></p><br><br><br><br><br><br><br><br>
+                 <p class="text3" align="right">Liter Air Laut</p>
+          </div>
+        </div>
+      </div>
+    </div>
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="card card-chart">
+              <div class="card-header" style="background-color: #CCFFFF">
+                <h4 class="card-title"> <i class="fas fa-2x fa-temperature-high"></i>Suhu Air Kolam</h4>
+              </div>
+              <div class="card-body">
+                <div class="chart-area">
+                   <p class="text1" id="suhu1" align="center"></p>
+                   <p class="text2" align="right"><sup>o</sup>C</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="card card-chart">
+              <div class="card-header"style="background-color: #DFB4A4">
+                <h4 class="card-title"> <i class="fas fa-2x fa-tint"></i>Kekeruhan Air Kolam</h4>
+             
+              </div>
+              <div class="card-body">
+                <div class="chart-area">
+                  <p class="text2" id="keruh1" align="center"></p>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="card card-chart">
+              <div class="card-header" style="background-color: #FFCCCC">
+                <h4 class="card-title"> <i class="fas fa-2x fa-tree"></i>Salinitas Air Kolam</h4>
+              </div>
+              <div class="card-body">
+                <div class="chart-area">
+                  <p class="text7" id="sali1" align="center"></p>
+                   <p class="text3" align="right">ppt</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+       
+         <div class="row">
+          <div class="col-lg-4">
+            <div class="card card-chart">
+              <div class="card-header"style="background-color: #CFCCFF">
+                <h4 class="card-title"> <i class="fas fa-2x fa-tint"></i>pH Air Kolam</h4>
+              </div>
+              <div class="card-body">
+                <div class="chart-area">
+                  <p class="text1" id="ph1" align="center"></p>
+                  <p class="text2" align="right"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+           <div class="col-lg-8">
+            <div class="card card-chart">
+              <div class="card-header" style="background-color: #FFEAEA">
+                <h4 class="card-title"> <i class="fas fa-2x fa-tree"></i>Saran</h4>
+              </div>
+              <div class="card-body">
+                <div class="chart-area">
+                  <p class="text1" id="saransali" align="center"></p>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+<script>
+            function tampilkanPreview(gambar,idpreview){
+//                membuat objek gambar
+                var gb = gambar.files;
+//                loop untuk merender gambar
+                for (var i = 0; i < gb.length; i++){
+//                    bikin variabel
+                    var gbPreview = gb[i];
+                    var imageType = /image.*/;
+                    var preview1=document.getElementById(idpreview);
+                    var reader = new FileReader();
+                    if (gbPreview.type.match(imageType)) {
+//                        jika tipe data sesuai
+                        preview.file = gbPreview;
+                        reader.onload = (function(element) {
+                            return function(e) {
+                                element.src = e.target.result;
+                            };
+                        })(preview);
+    //                    membaca data URL gambar
+                        reader.readAsDataURL(gbPreview);
+                    }else{
+//                        jika tipe data tidak sesuai
+                        alert("Type file tidak sesuai. Khusus image.");
+                    }
+                }
+            }
+        </script>
+        <script type="text/javascript">
+          function tampilkan(){
+  var p_kontainer=document.getElementById("container");
+  var p_kontainer1=document.getElementById("container1");
+  var p_kontainer2=document.getElementById("container2");
+  p_kontainer.innerHTML="<center> Umur Lobster : 6 Bulan</center>";
+  p_kontainer1.innerHTML="<center>Analisa : Lobster Siap Panen</center>";
+  p_kontainer2.innerHTML="<center>Berat : 500 Gram </center>";
+
+}
+        </script>
+          <div class="col-lg-12">
+            <div class="card card-chart">
+              <div class="card-header" style="background-color: #E8C6FF">
+                <h4 class="card-title"> <i class="fas fa-2x fa-tree"></i>Perkembangan Lobster</h4>
+              </div>
+              <div class="card-body">
+                <div class="chart-area1">
+<form id="myForm" action="" method="get">
+            <!--'preview' di bawah ini adalah id element img-->
+           <input type="file" class="btn btn-primary btn-lg" accept="image/*"  onchange="tampilkanPreview(this,'preview')" />
+           
+            <!--element image untuk menampilkan preview-->
+            <img id="preview" src="" alt="" width="320px"/>
+        </form>
+      
+        <input type="submit" class="btn btn-primary btn-lg" value="Tampilkan Keterangan" onclick="tampilkan()">
+
+ 
+<p class= "text3"id="container" ></p>
+<p class= "text3"id="container1" ></p>
+<p class= "text3"id="container2" ></p>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+       <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Welcome</h4>
+            </div>
+            <div class="modal-body">
+                <p><img src="http://erllang.ga/logo.png"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<<script type="text/javascript">
+  var sHour1 = 7;
+  var sMin1 = 10;
+  var sHour2 = 4;
+  var sMin2 = 30;
+  var Expired = 'no'
+  function timerFunction(){
+    var time = new Date().getHours();
+    var min = new Date().getMinutes();
+    if (time == sHour1 && min == sMin1) {
+      $('#popupTimer').modal('show');
+
+    }
+     else if (time == sHour2 && min == sMin2) {
+      $('#popupTimer').modal('show');
+
+    }
+  }
+if (Expired=='no') {
+  setTimeout(timerFunction,3000);
+}
+</script>
+<div id="popupTimer" class="modal fade" role="dialog">
+  <div class="modal-dialog" style="width: 450px">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="modal-text">
+          <div class="modal-textinner">
+            <h3 class="text-center">Saatnya Memberi Makan Kepada Lobster</h3>
+            <center>Klik Dimana Saja Untuk Keluar</center>
+            
+          </div>
+          
+        </div>
+        
+      </div>
+      
+    </div>
+    
+  </div>
+  
+</div>
+          
+      <footer class="footer">
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+ 
+  <!--   Core JS Files   -->
+  <script src="jquery.min.js"></script>
+  <script src="popper.min.js"></script>
+  <script src="bootstrap.min.js"></script>
+  <script src="perfect-scrollbar.jquery.min.js"></script>
+  <!--  Google Maps Plugin    -->
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+  <!-- Chart JS -->
+  <script src="chartjs.min.js"></script>
+  <!--  Notifications Plugin    -->
+  <script src="bootstrap-notify.js"></script>
+  <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="black-dashboard.min.js?v=1.0.0"></script><!-- Black Dashboard DEMO methods, don't include it in your project! -->
+  <script src="demo.js"></script>
+  <script src="logout.js"></script>
+  
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD0LW0kxXNcV09_FQqabAKa0izzWW7-6ZQ&callback=map_initMapMain"></script>
+  <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+  <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
+    </script>
+</body>
+
+</html>
